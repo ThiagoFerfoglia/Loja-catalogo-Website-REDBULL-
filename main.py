@@ -7,9 +7,9 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/catalog')
-def catalog():
-    return render_template('catalog.html')
+@app.route('/Races')
+def races():
+    return render_template('Races.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
