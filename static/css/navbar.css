@@ -1,0 +1,100 @@
+/* --- APENAS MENU E BOTÃO LATERAL --- */
+
+/* 1. O BOTÃO HAMBÚRGUER (☰) */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001; /* Garante que fique acima de tudo */
+    transition: transform 0.3s ease;
+}
+
+.menu-btn:active {
+    transform: scale(0.9);
+}
+
+/* 2. LOGO CENTRAL (OPCIONAL, MAS FAZ PARTE DA NAV) */
+.logo-centro {
+    position: fixed;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.logo-centro a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-centro a:hover {
+    color: #ff260065;
+}
+
+/* 3. O MENU LATERAL (A BARRA QUE DESLIZA) */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Começa escondido */
+    width: 300px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 80px 30px;
+    transition: 0.4s;
+    z-index: 1000;
+}
+
+/* CLASSE QUE O JS ATIVA */
+.menu-lateral.ativo {
+    left: 0;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.menu-lateral li {
+    margin-bottom: 30px;
+}
+
+.menu-lateral a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.menu-lateral a:hover {
+    color: #ff2800;
+}
+
+/* 4. BOTÕES DE NAVEGAÇÃO LATERAIS (SETAS < >) */
+button.esquerda, button.direita {
+    position: fixed; /* Mudei para fixed para não sumir no scroll */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.esquerda { left: 20px; }
+.direita { right: 20px; }
+
+button:hover {
+    background-color: gray;
+}

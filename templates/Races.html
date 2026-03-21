@@ -1,15 +1,12 @@
 <html>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/Races.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
     <head>
         <title>Races</title>
     </head>
     <body>
 
-        <div>
-
-            <!-- BOTÃO MENU --> 
-
-        </div>
+        {% include 'navbar.html' %}
         
         <!--Informações de carros-->
         
@@ -36,6 +33,7 @@
         </div>
 
     </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}" ></script>
 
     </body>
 </html>
