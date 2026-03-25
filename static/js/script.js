@@ -18,3 +18,42 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Botão ou Menu não encontrados! Verifique as classes no HTML.");
     }
 });
+
+// Faz os cards aparecerem suavemente conforme o scroll
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const car = document.querySelector(".car-image");
+    const text = document.querySelector(".text-container");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                car.classList.add("show");
+                text.classList.add("show");
+
+            } else {
+
+                car.classList.remove("show");
+                text.classList.remove("show");
+
+            }
+
+        });
+
+    }, { threshold: 0.3 });
+
+    observer.observe(car);
+
+});

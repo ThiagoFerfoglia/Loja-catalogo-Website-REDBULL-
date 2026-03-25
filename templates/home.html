@@ -8,36 +8,43 @@
 
 <body>
 
-    {% include 'navbar.html' %}
-
-    <div class="video-bg">
-        <video autoplay muted loop playsinline class="bg-video">
-            <source src="{{ url_for('static', filename='videos/video1.mp4') }}" type="video/mp4">
-        </video>
-        <div class="overlay"></div>
-    </div>
-  
-    <div class="content">
-        <img src="{{ url_for('static', filename='img/corvete2026ZR.jpg') }}" class="car-image">
-    </div>
-
-    <body>
-
 {% include 'navbar.html' %}
 
+
 <section class="hero">
-    <video autoplay muted loop class="bg-video">
-        <source src="{{ url_for('static', filename='videos/video1.mp4') }}">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="{{ url_for('static', filename='videos/video1.mp4') }}" type="video/mp4">
     </video>
+    <div class="overlay"></div>
 </section>
 
-<section class="content">
-    <img src="{{ url_for('static', filename='img/corvete2026ZR.jpg') }}">
+<section class="car-section">
+
+    <div class="car-container">
+        <img src="{{ url_for('static', filename='img/corvettezr.jpg') }}" class="car-image">
+    </div>
+
+    <div class="text-container">
+        <h1>Corvette ZR 2026</h1>
+        <p>
+            Potência Total: 1.250 CV, combinando um motor V8 biturbo de 5,5 litros e um motor elétrico dianteiro. 
+2
+Aceleração: 0 a 100 km/h em menos de 2 segundos e 0 a 400 metros em menos de 9 segundos. 
+2
+Tração Integral: Sistema de tração integral eletrificada (eAWD) que otimiza a entrega de torque. 
+2
+Bateria: Bateria de 1,9 kWh, recarregada por regeneração, sem necessidade de recarga externa. 
+2
+Plataforma: Baseado na arquitetura do Corvette E-Ray, com atualizações específicas para melhor desempenho. 
+2
+
+Essas especificações destacam o desempenho avançado e a tecnologia híbrida do Corvette ZR1X 2026.
+        </p>
+    </div>
+
 </section>
 
-</body>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>
