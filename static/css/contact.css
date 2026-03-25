@@ -1,0 +1,108 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color:#222121;
+  margin: 2; 
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 30px;
+  height: 85px;
+  object-fit: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+
+.info {
+  padding-top: 150px;
+}
+
+/* LADO ESQUERDO */
+.info {
+  width: 40%;
+}
+
+.info h4 {
+  color: #DCDCDC;
+}
+
+.info h1 {
+  font-size: 30px;
+  margin: 10px 0;
+  color: white; /
+}
+.info h2 {
+  font-size: 30px;
+  margin: 10px 0;
+  color: white; /
+
+}
+.info h3 {
+  font-size: 30px;
+  margin: 10px 0;
+  color: white; /
+}
+
+.info p {
+  color: #DCDCDC;
+}
+
+.redes span {
+  font-size: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* LADO DIREITO */
+
+.formulario {
+  padding-top: 150px;
+  margin-left: 20px;
+  margin-right: 40px;
+}
+
+.formulario {
+  width: 50%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.linha {
+  display: flex;
+  gap: 10px;
+}
+
+input, select, textarea {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #DCDCDC;
+  width: 100%;
+}
+
+textarea {
+  height: 120px;
+}
+
+/* BOTÃO */
+button {
+  background-color: #000000;
+  color: white;
+  border: 1px solid #DCDCDC;
+  padding: 15px;
+  width: 250px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0b0b0b;
+  color: black;
+}
