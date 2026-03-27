@@ -40,6 +40,33 @@
     color: #ff260065;
 }
 
+.botao_ficha{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.botao_ficha a{
+    text-decoration: none;
+    color: white;
+    padding: 12px 35px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.botao_ficha a img{
+    width: 35px;
+    height: 240x;
+
+}
+
+.botao_ficha a:hover{
+    background: white;
+    color: black;
+}
+
 /* 3. O MENU LATERAL (A BARRA QUE DESLIZA) */
 .menu-lateral {
     position: fixed;

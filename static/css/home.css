@@ -31,7 +31,7 @@
 
 .car-section{
     min-height:100vh;
-    background: #0f0f0f;
+    background: white;
 
     display:flex;
     align-items:center;
@@ -64,9 +64,9 @@
 }
 
 .text-container p{
-    font-size:20px;
+    font-size:16px;
     line-height:1.6;
-    color:white;
+    color: black;
 }
 
 /* ANIMAÇÕES INICIAIS */
@@ -91,7 +91,10 @@
 }
 
 h1{
-    color: aliceblue;
+    color: black;
+    font-size:48px;
+    margin-bottom:20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 
