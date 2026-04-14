@@ -29,66 +29,29 @@
     </div>
 </section>
 
-<!-- SECTION ESPORTES -->
-<section class="sport-section">
-    <div class="sport-wrapper">
+<section class="athlete-carousel">
+    <button class="carousel-arrow left" id="prevBtn">&#10094;</button>
 
-        <!-- destaque principal -->
-        <div class="sport-highlight">
-            <img src="{{ url_for('static', filename='img/max3.jpg') }}" alt="Max Verstappen" class="sport-highlight-img">
-
-            <div class="sport-overlay"></div>
-
-            <div class="sport-highlight-content">
-                <span class="sport-tag">ATLETA EM DESTAQUE</span>
-
-                <h1>Max Verstappen</h1>
-
-                <p>
-                    Jovem belga de 26 anos, Max é um dos pilotos mais talentosos da F1,
-                    com 4 títulos mundiais e 50 vitórias. Conhecido por sua agressividade
-                    e habilidade, é o atual campeão mundial.
-                </p>
-
-                <a href="#" class="sport-btn">Explorar atleta</a>
-            </div>
+    <div class="carousel-content">
+        <div class="carousel-text">
+            <span class="carousel-tag" id="athleteSport">FÓRMULA 1</span>
+            <h2 id="athleteTitle">Max Verstappen domina mais uma corrida</h2>
+            <p id="athleteDesc">
+                Max segue como um dos nomes mais fortes da categoria, unindo agressividade,
+                técnica e consistência em alto nível.
+            </p>
+            <a href="{{ url_for('render_static', page_name='Races') }}" class="carousel-link" id="athleteLink">
+                VEJA MAIS
+                <span class="arrow-circle">&#10095;</span>
+            </a>
         </div>
 
-        <!-- cards laterais -->
-        <div class="sport-side">
-
-            <div class="sport-card">
-                <img src="{{ url_for('static', filename='img/skate.jpg') }}" alt="Skate" class="sport-card-img">
-                <div class="sport-card-overlay"></div>
-
-                <div class="sport-card-content">
-                    <span>ESPORTE</span>
-                    <h2>Skate</h2>
-                </div>
-            </div>
-
-            <div class="sport-card">
-                <img src="{{ url_for('static', filename='img/surf.jpg') }}" alt="Surf" class="sport-card-img">
-                <div class="sport-card-overlay"></div>
-
-                <div class="sport-card-content">
-                    <span>ESPORTE</span>
-                    <h2>Surf</h2>
-                </div>
-            </div>
-
-            <div class="sport-card">
-                <img src="{{ url_for('static', filename='img/motocross.jpg') }}" alt="Motocross" class="sport-card-img">
-                <div class="sport-card-overlay"></div>
-
-                <div class="sport-card-content">
-                    <span>ESPORTE</span>
-                    <h2>Motocross</h2>
-                </div>
-            </div>
-
+        <div class="carousel-image-box">
+            <img id="athleteImage" src="{{ url_for('static', filename='img/maxverstappen.jpg') }}" alt="Max Verstappen">
         </div>
     </div>
+
+    <button class="carousel-arrow right" id="nextBtn">&#10095;</button>
 </section>
 
 <!-- MEDIA SECTION -->
@@ -97,14 +60,14 @@
         <div class="media-grid">
 
             <div class="media-card grupo-1">
-                <img class="card-image" src="{{ url_for('static', filename='img/corvettezr.jpg') }}">
+                <img class="card-image" src="{{ url_for('static', filename='img/lataoriginal.jpg') }}">
                 <video class="card-video" muted loop playsinline>
-                    <source src="{{ url_for('static', filename='videos/video2.mp4') }}">
+                    <source src="{{ url_for('static', filename='videos/originalred.mp4') }}">
                 </video>
                 <div class="card-overlay"></div>
                 <div class="card-content">
-                    <span>CORVETTE</span>
-                    <h2>ZR1</h2>
+                    <span>RedBull</span>
+                    <h2>Origin</h2>
                 </div>
             </div>
 

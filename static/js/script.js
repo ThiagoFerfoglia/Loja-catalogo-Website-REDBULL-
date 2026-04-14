@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
     const botao = document.querySelector(".menu-btn");
     const menu = document.querySelector(".menu-lateral");
 
@@ -9,27 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* ANIMAÇÃO DA SEÇÃO DO CARRO */
-    const car = document.querySelector(".car-image");
-    const text = document.querySelector(".text-container");
-
-    if (car && text) {
-        const carObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    car.classList.add("show");
-                    text.classList.add("show");
-                } else {
-                    car.classList.remove("show");
-                    text.classList.remove("show");
-                }
-            });
-        }, { threshold: 0.3 });
-
-        carObserver.observe(car);
-    }
-
-    /* ANIMAÇÃO DOS CARDS DA MEDIA SECTION POR GRUPO */
+    /* MEDIA SECTION */
     const mediaSection = document.querySelector(".media-section");
     const grupo1 = document.querySelectorAll(".grupo-1");
     const grupo2 = document.querySelectorAll(".grupo-2");
@@ -53,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cardsObserver.observe(mediaSection);
     }
 
-    /* VÍDEO NO HOVER DOS CARDS */
+    /* VÍDEO HOVER */
     const mediaCards = document.querySelectorAll(".media-card");
 
     mediaCards.forEach(card => {
@@ -72,91 +53,103 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    /* OBSERVER GERAL PARA OUTROS ELEMENTOS */
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
+    /* CARROSSEL */
+    const athletes = [
+        {
+            sport: "F1",
+            title: "Max Verstappen domina a F1 com maestria",
+            desc: "Max Verstappen domina a F1 com maestria, conquistando títulos e quebrando recordes. O piloto holandês é conhecido por sua habilidade excepcional, agressividade nas pistas e consistência, tornando-se um dos maiores nomes da história da Fórmula 1.",
+            image: "/static/img/maxverstappen.jpg",
+            link: "/atletas/max-verstappen"
+        },
+        {
+            sport: "FUTEBOL",
+            title: "Neymar Jr. maior artilheiro do Brasil",
+            desc: "Neymar ultrapassa Pelé e faz história como maior artilheiro da seleção Brasileira.",
+            image: "/static/img/Neymar.jpg",
+            link: "/atletas/neymar-jr"
+        },
+        {
+            sport: "ESQUI ALPINO",
+            title: "Lucas Braathen surpreende",
+            desc: "Brasileiro se destaca nas olimpíadas de inverno, mostrando talento e determinação em um esporte pouco tradicional para o país.",
+            image: "/static/img/lucas.jpg",
+            link: "/esportes/esqui"
+        },
+        {
+            sport: "E-SPORTS",
+            title: "Gaules domina a cena",
+            desc: "Um dos maiores nomes do e-sports, Gaules é conhecido por sua habilidade excepcional, carisma e influência na comunidade gamer, conquistando fãs ao redor do mundo.",
+            image: "/static/img/gaules.jpg",
+            link: "/esportes/esports"
+        }
+    ];
+
+    let currentAthlete = 0;
+
+    const athleteSport = document.getElementById("athleteSport");
+    const athleteTitle = document.getElementById("athleteTitle");
+    const athleteDesc = document.getElementById("athleteDesc");
+    const athleteImage = document.getElementById("athleteImage");
+    const athleteLink = document.getElementById("athleteLink");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    if (
+        athleteSport &&
+        athleteTitle &&
+        athleteDesc &&
+        athleteImage &&
+        athleteLink &&
+        prevBtn &&
+        nextBtn
+    ) {
+
+        function updateCarousel() {
+            const carousel = document.querySelector(".athlete-carousel");
+            const item = athletes[currentAthlete];
+
+            /* 🔥 SAÍDA */
+            carousel.classList.remove("carousel-entering");
+            carousel.classList.add("carousel-changing");
+
+            setTimeout(() => {
+
+                /* troca conteúdo */
+                athleteSport.textContent = item.sport;
+                athleteTitle.textContent = item.title;
+                athleteDesc.textContent = item.desc;
+                athleteImage.src = item.image;
+                athleteImage.alt = item.title;
+                athleteLink.href = item.link;
+
+                /* 🔥 ENTRADA */
+                carousel.classList.remove("carousel-changing");
+                carousel.classList.add("carousel-entering");
+
+                setTimeout(() => {
+                    carousel.classList.remove("carousel-entering");
+                }, 800);
+
+            }, 400);
+        }
+
+        nextBtn.addEventListener("click", () => {
+            currentAthlete = (currentAthlete + 1) % athletes.length;
+            updateCarousel();
         });
-    }, { threshold: 0.1 });
 
-    /* CARDS DE ESPECIFICAÇÕES */
-    const specCards = document.querySelectorAll(".spec-card");
-    specCards.forEach((card) => observer.observe(card));
+        prevBtn.addEventListener("click", () => {
+            currentAthlete = (currentAthlete - 1 + athletes.length) % athletes.length;
+            updateCarousel();
+        });
 
-    /* IMAGEM DE DESIGN */
-    const designImage = document.querySelector(".design-image");
-    if (designImage) {
-        observer.observe(designImage);
+        updateCarousel();
     }
 
-    /* IMAGENS DA GALERIA */
-    const galleryImages = document.querySelectorAll(".gallery-image");
-    galleryImages.forEach((image) => observer.observe(image));
-});
+}); // 🔥 FECHADO CORRETAMENTE
 
-/* GSAP / SCROLLTRIGGER */
-gsap.registerPlugin(ScrollTrigger);
-
-/* Animação da Imagem do Motor (Zoom e Fade) */
-gsap.from(".motor-img-box img", {
-    scrollTrigger: { 
-        trigger: ".motor-img-box", 
-        start: "top 80%",
-        end: "bottom 20%",
-        scrub: 1,
-    },
-    scale: 0.5,
-    opacity: 0,
-    duration: 1.5
-});
-
-/* Animação da Coluna de Estatísticas (Esquerda) */
-gsap.from(".col-stats .stat-item", {
-    scrollTrigger: {
-        trigger: ".ficha-tecnica-container",
-        start: "top 80%",
-    },
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: "power2.out"
-});
-
-/* Animação do Motor (Centro - Efeito de Zoom) */
-gsap.from(".motor-img-box img", {
-    scrollTrigger: {
-        trigger: ".ficha-tecnica-container",
-        start: "top 75%",
-    },
-    scale: 0.7,
-    opacity: 0,
-    duration: 1.5,
-    ease: "back.out(1.7)"
-});
-
-/* Animação da Coluna de Informações (Direita) */
-gsap.from(".info-col h3, .info-col p", {
-    scrollTrigger: {
-        trigger: ".ficha-tecnica-container",
-        start: "top 80%",
-    },
-    x: 100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.1,
-    ease: "power2.out"
-});
-
-/* Parallax suave no motor */
-gsap.to(".motor-img-box img", {
-    scrollTrigger: {
-        trigger: ".ficha-tecnica-container",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-    },
-    y: -30
-});
+/* GSAP (seguro) */
+if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
