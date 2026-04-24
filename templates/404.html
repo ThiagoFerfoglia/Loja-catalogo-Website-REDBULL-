@@ -3,60 +3,357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 | Red Bull</title>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,900;1,900&family=Barlow:wght@400&display=swap" rel="stylesheet">
+    <title>404 | Red Bull — Fora da Pista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,900&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{
-            background:#050505;color:#fff;
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            background:#050505;
+            color:#fff;
             font-family:'Barlow',sans-serif;
-            min-height:100vh;display:flex;
-            align-items:center;justify-content:center;
-            flex-direction:column;text-align:center;
+            height:100vh;
             overflow:hidden;
+            cursor:none;
         }
-        .big{
+
+        /* Custom cursor */
+        .cursor {
+            position:fixed;
+            width:12px; height:12px;
+            background:#ff2600;
+            border-radius:50%;
+            pointer-events:none;
+            z-index:9999;
+            transform:translate(-50%,-50%);
+            transition:width .2s, height .2s;
+            mix-blend-mode:difference;
+        }
+        .cursor-ring {
+            position:fixed;
+            width:40px; height:40px;
+            border:1px solid rgba(255,38,0,.5);
+            border-radius:50%;
+            pointer-events:none;
+            z-index:9998;
+            transform:translate(-50%,-50%);
+        }
+
+        /* Canvas */
+        #canvas {
+            position:fixed;
+            inset:0;
+            z-index:0;
+        }
+
+        /* Scanlines overlay */
+        .scanlines {
+            position:fixed;
+            inset:0;
+            z-index:1;
+            background:repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 3px,
+                rgba(0,0,0,.07) 3px,
+                rgba(0,0,0,.07) 4px
+            );
+            pointer-events:none;
+        }
+
+        /* Content */
+        .content {
+            position:fixed;
+            inset:0;
+            z-index:2;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            pointer-events:none;
+        }
+
+        .tag {
             font-family:'Barlow Condensed',sans-serif;
-            font-size:clamp(180px,30vw,320px);
-            font-weight:900;font-style:italic;
-            line-height:0.85;
-            color:rgba(255,255,255,0.04);
+            font-size:11px;
+            letter-spacing:6px;
+            color:#ff2600;
+            text-transform:uppercase;
+            display:block;
+            margin-bottom:24px;
+            animation: fadeSlide .8s .2s both;
+        }
+
+        .num-404 {
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:clamp(120px,22vw,280px);
+            font-weight:900;
+            font-style:italic;
+            line-height:.85;
+            letter-spacing:-6px;
+            text-transform:uppercase;
+            /* Glitch layers */
+            position:relative;
+            animation: glitchBase 4s infinite;
+        }
+
+        .num-404::before {
+            content:'404';
             position:absolute;
-            user-select:none;
+            inset:0;
+            color:#ff2600;
+            clip-path:polygon(0 30%,100% 30%,100% 50%,0 50%);
+            animation:glitchRed 4s infinite;
         }
-        .content{position:relative;z-index:2;}
-        .tag{
-            font-family:'Barlow Condensed',sans-serif;
-            font-size:11px;letter-spacing:5px;color:#ff2600;
-            text-transform:uppercase;display:block;margin-bottom:20px;
+
+        .num-404::after {
+            content:'404';
+            position:absolute;
+            inset:0;
+            color:#00d4ff;
+            clip-path:polygon(0 60%,100% 60%,100% 75%,0 75%);
+            animation:glitchBlue 4s infinite;
         }
-        h1{
-            font-family:'Barlow Condensed',sans-serif;
-            font-size:clamp(48px,10vw,96px);
-            font-weight:900;font-style:italic;
-            text-transform:uppercase;margin-bottom:16px;
+
+        @keyframes glitchBase {
+            0%,90%,100%   { transform:translateX(0); }
+            92%           { transform:translateX(-4px); }
+            94%           { transform:translateX(4px); }
+            96%           { transform:translateX(-2px); }
+            98%           { transform:translateX(2px); }
         }
-        p{color:rgba(255,255,255,0.35);font-size:16px;letter-spacing:2px;margin-bottom:48px;}
-        a{
-            display:inline-block;
+        @keyframes glitchRed {
+            0%,90%,100%   { transform:translateX(0); opacity:0; }
+            92%           { transform:translateX(6px); opacity:1; }
+            94%           { transform:translateX(-4px); opacity:1; }
+            96%           { transform:translateX(0); opacity:0; }
+        }
+        @keyframes glitchBlue {
+            0%,90%,100%   { transform:translateX(0); opacity:0; }
+            93%           { transform:translateX(-6px); opacity:1; }
+            95%           { transform:translateX(4px); opacity:1; }
+            97%           { transform:translateX(0); opacity:0; }
+        }
+
+        .headline {
             font-family:'Barlow Condensed',sans-serif;
-            font-size:13px;font-weight:700;
-            letter-spacing:4px;text-transform:uppercase;
-            color:#fff;text-decoration:none;
-            border:1px solid rgba(255,255,255,0.2);
+            font-size:clamp(28px,5vw,52px);
+            font-weight:900;
+            font-style:italic;
+            text-transform:uppercase;
+            letter-spacing:2px;
+            margin-top:16px;
+            animation: fadeSlide .8s .4s both;
+        }
+        .headline em { color:#ff2600; font-style:italic; }
+
+        .sub {
+            font-size:14px;
+            letter-spacing:3px;
+            color:rgba(255,255,255,.3);
+            text-transform:uppercase;
+            margin-top:16px;
+            animation: fadeSlide .8s .6s both;
+        }
+
+        .back-btn {
+            display:inline-flex;
+            align-items:center;
+            gap:12px;
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:12px;
+            font-weight:700;
+            letter-spacing:5px;
+            color:#fff;
+            text-decoration:none;
+            text-transform:uppercase;
+            border:1px solid rgba(255,255,255,.2);
             padding:16px 40px;
-            transition:background 0.3s,border-color 0.3s;
+            margin-top:48px;
+            transition:background .3s, border-color .3s, transform .2s;
+            pointer-events:all;
+            animation: fadeSlide .8s .8s both;
         }
-        a:hover{background:#ff2600;border-color:#ff2600;}
+        .back-btn:hover {
+            background:#ff2600;
+            border-color:#ff2600;
+            transform:translateY(-3px);
+        }
+
+        /* Speed lines corners */
+        .corner {
+            position:fixed;
+            z-index:2;
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:10px;
+            letter-spacing:3px;
+            color:rgba(255,255,255,.15);
+            pointer-events:none;
+        }
+        .corner.tl { top:24px; left:28px; }
+        .corner.tr { top:24px; right:28px; }
+        .corner.bl { bottom:24px; left:28px; }
+        .corner.br { bottom:24px; right:28px; }
+
+        /* Countdown */
+        .countdown {
+            position:fixed;
+            bottom:32px;
+            left:50%;
+            transform:translateX(-50%);
+            z-index:3;
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:11px;
+            letter-spacing:4px;
+            color:rgba(255,255,255,.2);
+            text-transform:uppercase;
+            pointer-events:none;
+        }
+        .countdown span { color:#ff2600; }
+
+        /* Progress bar */
+        .prog-bar {
+            position:fixed;
+            bottom:0; left:0;
+            height:2px;
+            background:#ff2600;
+            z-index:4;
+            transition:width .1s linear;
+        }
+
+        @keyframes fadeSlide {
+            from { opacity:0; transform:translateY(24px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
     </style>
 </head>
 <body>
-    <div class="big">404</div>
-    <div class="content">
-        <span class="tag">Página não encontrada</span>
-        <h1>Fora da<br><span style="color:#ff2600">Pista</span></h1>
-        <p>Essa página não existe — mas a corrida continua.</p>
-        <a href="/">VOLTAR AO INÍCIO</a>
-    </div>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
+
+<canvas id="canvas"></canvas>
+<div class="scanlines"></div>
+
+<div class="corner tl">RB·WORLD</div>
+<div class="corner tr">ERR:404</div>
+<div class="corner bl">LAT: –– LON: ––</div>
+<div class="corner br">SIGNAL LOST</div>
+
+<div class="content">
+    <span class="tag">Erro de navegação</span>
+    <div class="num-404">404</div>
+    <h1 class="headline">Fora da <em>Pista</em></h1>
+    <p class="sub">A página que você procura não existe</p>
+    <a href="/" class="back-btn">← Voltar ao início</a>
+</div>
+
+<div class="countdown" id="cdText">Redirecionando em <span id="cdNum">10</span>s</div>
+<div class="prog-bar" id="progBar" style="width:0%"></div>
+
+<script>
+/* ── CURSOR ── */
+const cur = document.getElementById('cur');
+const curRing = document.getElementById('curRing');
+let mx=0,my=0,rx=window.innerWidth/2,ry=window.innerHeight/2;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function tick(){
+    cur.style.left=mx+'px'; cur.style.top=my+'px';
+    rx+=(mx-rx)*.1; ry+=(my-ry)*.1;
+    curRing.style.left=rx+'px'; curRing.style.top=ry+'px';
+    requestAnimationFrame(tick);
+})();
+
+/* ── CANVAS PARTICLES ── */
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let W,H,particles=[];
+
+function resize(){
+    W=canvas.width=window.innerWidth;
+    H=canvas.height=window.innerHeight;
+}
+resize();
+window.addEventListener('resize',()=>{resize();init();});
+
+class Particle {
+    constructor(){this.reset(true);}
+    reset(init){
+        this.x = Math.random()*W;
+        this.y = init ? Math.random()*H : -10;
+        this.speed = 1 + Math.random()*3;
+        this.len = 40 + Math.random()*120;
+        this.alpha = .04 + Math.random()*.15;
+        this.width = .3 + Math.random()*.8;
+        this.red = Math.random()<.08; // 8% are red
+    }
+    update(){
+        this.y += this.speed;
+        if(this.y-this.len > H) this.reset(false);
+    }
+    draw(){
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y - this.len);
+        ctx.strokeStyle = this.red
+            ? `rgba(255,38,0,${this.alpha*2})`
+            : `rgba(255,255,255,${this.alpha})`;
+        ctx.lineWidth = this.width;
+        ctx.stroke();
+    }
+}
+
+function init(){
+    particles=[];
+    const count = Math.floor(W/5);
+    for(let i=0;i<count;i++) particles.push(new Particle());
+}
+init();
+
+/* Mouse repel */
+let mouse={x:-999,y:-999};
+document.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+
+function animate(){
+    ctx.clearRect(0,0,W,H);
+
+    // subtle radial glow following mouse
+    const grd = ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,300);
+    grd.addColorStop(0,'rgba(255,38,0,.04)');
+    grd.addColorStop(1,'transparent');
+    ctx.fillStyle=grd;
+    ctx.fillRect(0,0,W,H);
+
+    particles.forEach(p=>{
+        // repel from mouse
+        const dx=p.x-mouse.x, dy=p.y-mouse.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<120) p.x += (dx/dist)*2;
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+
+/* ── COUNTDOWN REDIRECT ── */
+let secs=10;
+const cdNum=document.getElementById('cdNum');
+const progBar=document.getElementById('progBar');
+const interval=setInterval(()=>{
+    secs--;
+    cdNum.textContent=secs;
+    progBar.style.width=((10-secs)/10*100)+'%';
+    if(secs<=0){clearInterval(interval);window.location.href='/';}
+},1000);
+
+// cancel on interaction
+document.addEventListener('click',()=>{
+    clearInterval(interval);
+    document.getElementById('cdText').style.display='none';
+    progBar.style.display='none';
+});
+</script>
 </body>
 </html>

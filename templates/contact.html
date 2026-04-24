@@ -4,100 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Red Bull | Contact</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Contact.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
 </head>
 <body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
+
 {% include 'navbar.html' %}
 
-<main class="main-contact">
-    <div class="bg-glow red"></div>
-    <div class="bg-glow blue"></div>
-    <div class="diagonal d1"></div>
-    <div class="diagonal d2"></div>
+<!-- HERO -->
+<section class="contact-hero">
+    <div class="grid-lines"></div>
+    <div class="hero-inner">
+        <div class="hero-left">
+            <p class="hero-eyebrow">Red Bull Racing · 2026</p>
+            <h1 class="hero-title">
+                FALE<br>COM O<br><em>TIME</em>
+            </h1>
+        </div>
+        <div class="hero-right">
+            <p class="hero-desc">Dúvidas, propostas, parcerias — a equipe Red Bull está pronta para ouvir você. Preencha o formulário e entraremos em contato em até 24h.</p>
+        </div>
+    </div>
+</section>
 
-    <section class="contact-wrapper">
-        <div class="info-section">
-            <header class="contact-header">
-                <span class="tag">RED BULL RACING</span>
-                <h1>FALE COM<br>O <em>TIME</em></h1>
-                <p>Dúvidas, propostas, parcerias — a equipe Red Bull está pronta para ouvir você.</p>
-            </header>
-            <div class="contact-cards">
-                <div class="detail-item">
-                    <div class="icon-box"><i class="fas fa-envelope"></i></div>
-                    <div class="detail-text">
-                        <h3>Email</h3>
-                        <p>contato@redbullracing.com</p>
-                        <p>suporte@redbullracing.com</p>
-                    </div>
+<div class="divider"></div>
+
+<!-- MAIN -->
+<div class="contact-main">
+
+    <!-- INFO -->
+    <div class="info-panel">
+        <p class="panel-label">Informações</p>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="ic-icon"><i class="fas fa-envelope"></i></div>
+                <div class="ic-body">
+                    <p class="ic-label">Email</p>
+                    <p class="ic-value">contato@redbullracing.com<br>suporte@redbullracing.com</p>
                 </div>
-                <div class="detail-item">
-                    <div class="icon-box"><i class="fas fa-clock"></i></div>
-                    <div class="detail-text">
-                        <h3>Atendimento</h3>
-                        <p>Seg–Sex: <strong>7h às 17h30</strong></p>
-                        <p>Sáb: <strong>8h às 12h</strong> · Dom: <span class="closed">Fechado</span></p>
-                    </div>
+            </div>
+            <div class="info-card">
+                <div class="ic-icon"><i class="fas fa-location-dot"></i></div>
+                <div class="ic-body">
+                    <p class="ic-label">Base principal</p>
+                    <p class="ic-value"><strong>São Paulo, Brasil</strong><br>Atendimento nacional</p>
                 </div>
-                <div class="detail-item">
-                    <div class="icon-box"><i class="fas fa-location-dot"></i></div>
-                    <div class="detail-text">
-                        <h3>Base</h3>
-                        <p>São Paulo · Atendimento nacional</p>
-                    </div>
+            </div>
+            <div class="info-card">
+                <div class="ic-icon"><i class="fas fa-clock"></i></div>
+                <div class="ic-body">
+                    <p class="ic-label">Horário de atendimento</p>
+                    <p class="ic-value">
+                        Seg–Sex: <strong>7h às 17h30</strong><br>
+                        Sábado: <strong>8h às 12h</strong> · Dom: <span class="off">Fechado</span>
+                    </p>
+                    <div class="hours-bar" id="hoursBar"></div>
                 </div>
             </div>
         </div>
 
-        <div class="form-section">
-            <div class="form-card">
-                <div class="form-top-line"></div>
-                <form>
-                    <div class="input-row">
-                        <div class="field">
-                            <label>Nome</label>
-                            <input type="text" placeholder="Seu nome" required>
-                        </div>
-                        <div class="field">
-                            <label>Sobrenome</label>
-                            <input type="text" placeholder="Seu sobrenome" required>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Telefone</label>
-                        <input type="tel" placeholder="(00) 00000-0000">
-                    </div>
-                    <div class="field">
-                        <label>Email</label>
-                        <input type="email" placeholder="seu@email.com" required>
-                    </div>
-                    <div class="field">
-                        <label>Unidade</label>
-                        <select required>
-                            <option value="" disabled selected>Escolha a unidade</option>
-                            <option>São Paulo</option>
-                            <option>Belo Horizonte</option>
-                            <option>Rio de Janeiro</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label>Mensagem</label>
-                        <textarea placeholder="Escreva sua mensagem..." rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        ENVIAR MENSAGEM <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
+        <div class="socials">
+            <a href="https://www.instagram.com/redbull/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/redbull" target="_blank" class="social-btn"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.youtube.com/redbull" target="_blank" class="social-btn"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/redbull" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
         </div>
-    </section>
-</main>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-panel">
+        <p class="panel-label">Formulário de contato</p>
+
+        <div class="subject-pills" id="pills">
+            <div class="pill active" data-val="Parceria">Parceria</div>
+            <div class="pill" data-val="Imprensa">Imprensa</div>
+            <div class="pill" data-val="Suporte">Suporte</div>
+            <div class="pill" data-val="Evento">Evento</div>
+            <div class="pill" data-val="Outro">Outro</div>
+        </div>
+
+        <form id="contactForm" novalidate>
+            <input type="hidden" id="subjectHidden" value="Parceria">
+
+            <div class="form-row">
+                <div class="field">
+                    <label>Nome <span class="req">*</span></label>
+                    <div class="field-wrap">
+                        <input type="text" placeholder="Seu nome" required id="fname">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Sobrenome <span class="req">*</span></label>
+                    <div class="field-wrap">
+                        <input type="text" placeholder="Seu sobrenome" required id="lname">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="field">
+                    <label>Email <span class="req">*</span></label>
+                    <div class="field-wrap">
+                        <input type="email" placeholder="seu@email.com" required id="femail">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Telefone</label>
+                    <div class="field-wrap">
+                        <input type="tel" placeholder="(00) 00000-0000" id="ftel">
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Unidade <span class="req">*</span></label>
+                <div class="field-wrap">
+                    <select required id="funit">
+                        <option value="" disabled selected>Escolha a unidade mais próxima</option>
+                        <option>São Paulo</option>
+                        <option>Belo Horizonte</option>
+                        <option>Rio de Janeiro</option>
+                        <option>Curitiba</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Mensagem</label>
+                <div class="field-wrap">
+                    <textarea placeholder="Escreva sua mensagem..." id="fmsg"></textarea>
+                </div>
+            </div>
+
+            <div class="submit-row">
+                <p class="submit-note">* Campos obrigatórios</p>
+                <button type="submit" class="btn-submit">
+                    <span>Enviar mensagem</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </form>
+
+        <div class="success-msg" id="successMsg">
+            <div class="check-ring"><i class="fas fa-check"></i></div>
+            <h3>Mensagem Enviada!</h3>
+            <p>Em breve nossa equipe entrará em contato com você.</p>
+        </div>
+    </div>
+
+</div>
 
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+/* CURSOR */
+const cur = document.getElementById('cur');
+const curRing = document.getElementById('curRing');
+let mx = window.innerWidth/2, my = window.innerHeight/2, rx = mx, ry = my;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function tick() {
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+    rx += (mx - rx) * .1; ry += (my - ry) * .1;
+    curRing.style.left = rx + 'px'; curRing.style.top = ry + 'px';
+    requestAnimationFrame(tick);
+})();
+
+/* HOURS BAR */
+const days = ['S','T','Q','Q','S','S','D'];
+const active = [true,true,true,true,true,true,false];
+const bar = document.getElementById('hoursBar');
+const today = new Date().getDay();
+days.forEach((d, i) => {
+    const wrap = document.createElement('div'); wrap.className = 'h-day';
+    const dot = document.createElement('div');
+    dot.className = 'h-dot' + (active[i] ? ' active' : '');
+    if (i === today) dot.style.boxShadow = '0 0 8px #ff2600';
+    const name = document.createElement('div'); name.className = 'h-name'; name.textContent = d;
+    wrap.appendChild(dot); wrap.appendChild(name);
+    bar.appendChild(wrap);
+});
+
+/* PILLS */
+document.querySelectorAll('.pill').forEach(p => {
+    p.addEventListener('click', () => {
+        document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
+        document.getElementById('subjectHidden').value = p.dataset.val;
+    });
+});
+
+/* FORM SUBMIT */
+document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('successMsg');
+    form.style.opacity = '0';
+    form.style.transition = 'opacity .4s';
+    setTimeout(() => {
+        form.style.display = 'none';
+        success.style.display = 'flex';
+    }, 400);
+});
+</script>
 </body>
 </html>
