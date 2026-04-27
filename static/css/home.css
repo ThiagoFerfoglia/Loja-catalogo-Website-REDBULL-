@@ -58,7 +58,7 @@ body:has(a:hover) .cursor-ring { width:56px; height:56px; border-color:#ff2600; 
 
 .hero-title {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(45px, 8vw, 95px);
+    font-size: clamp(42px, 3vw, 85px);
     font-weight: 900;
     font-style: italic;
     line-height: 0.85;
