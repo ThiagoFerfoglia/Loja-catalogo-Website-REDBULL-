@@ -1,65 +1,81 @@
-Red Bull Landing Page
+# 🔴 Red Bull Landing Page
 
-Landing page moderna inspirada no universo da Red Bull, focada em performance visual, animações e experiência imersiva. O projeto simula um ambiente dinâmico com atletas, esportes radicais e conteúdo multimídia, explorando conceitos avançados de front-end.
+Landing page moderna inspirada no universo da Red Bull, focada em performance visual, animações e experiência imersiva. O projeto simula um ambiente dinâmico com atletas, esportes radicais e conteúdo multimídia, explorando conceitos avançados de front-end — agora totalmente estático.
 
-✨ Destaques
-🎬 Hero com vídeo em background (autoplay + overlay + efeitos visuais)
-🎯 Carrossel interativo de atletas
-🎥 Grid multimídia com hover (imagem → vídeo)
-🧠 Animações com Intersection Observer
-🖱️ Cursor customizado
-⚡ Transições suaves e microinterações
-📱 Responsividade para diferentes dispositivos
-🛠️ Tecnologias utilizadas
-HTML5
-CSS3 (Flexbox, Grid, animações, clamp())
-JavaScript (DOM, eventos, animações)
-Jinja2 (integração com backend Flask)
-🎨 Conceitos aplicados
-Design moderno e imersivo
-Mobile-first (em evolução)
-Performance visual e UX
-Organização modular de layout
-Uso de vídeo e interação para engajamento
-⚠️ Observações
+---
+
+## ✨ Destaques
+
+🎬 Hero com vídeo em background (autoplay + overlay + efeitos visuais)  
+🎯 Carrossel interativo de atletas  
+🎥 Grid multimídia com hover (imagem → vídeo)  
+🧠 Animações com Intersection Observer  
+🖱️ Cursor customizado  
+⚡ Transições suaves e microinterações  
+📱 Responsividade para diferentes dispositivos  
+🚫 Página 404 personalizada  
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+- HTML5  
+- CSS3 (Flexbox, Grid, animações, clamp())  
+- JavaScript (DOM, eventos, animações)
+
+---
+
+## 🎨 Conceitos aplicados
+
+- Design moderno e imersivo  
+- Mobile-first (em evolução)  
+- Performance visual e UX  
+- Organização modular de layout  
+- Uso de vídeo e interação para engajamento  
+
+---
+
+## ⚠️ Observações
 
 Este projeto tem foco em estudo e prática de front-end avançado, principalmente em:
 
-animações
-responsividade
-manipulação de DOM
-📌 Próximos passos
-Melhorar responsividade mobile (ajustes finos de layout)
-Otimizar performance de vídeos
-Implementar lazy loading
-Refinar acessibilidade
+- animações  
+- responsividade  
+- manipulação de DOM  
+
+---
+📁 Estrutura do projeto
+
 
 .
-├── main.py                 # Lógica do servidor e rotas Flask
-├── static/                 # Ativos estáticos
-│   ├── css/                # contact.css, home.css, navbar.css, Races.css
-│   ├── img/                # Logos e imagens gerais (corvettezr.jpg, etc)
-│   │   └── imgraces/       # Imagens específicas dos modelos (frente, lateral, tras)
-│   ├── js/                 # Scripts de comportamento (script.js)
-│   └── videos/             # Engine de vídeo (video1.mp4, video2.mp4)
-├── templates/              # Estruturas Jinja2 (HTML dinâmico)
-│   ├── contact.html        # Página de contato
-│   ├── home.html           # Landing page
-│   ├── navbar.html         # Menu global
-│   └── Races.html          # Catálogo de performance
-└── README.md               # Documentação do projeto
+├── home.html
+├── contact.html
+├── Races.html
+├── 404.html
+│
+├── css/
+│ ├── home.css
+│ ├── navbar.css
+│ ├── contact.css
+│ └── Races.css
+│
+├── js/
+│ └── script.js
+│
+├── img/
+│ ├── (imagens gerais)
+│ └── imgraces/
+│
+└── videos/
+├── flow2.mp4
+├── moto.mp4
+├── REDBULL.mp4
+├── skate2.mp4
+├── snowboard.mp4
+└── trail.mp4
 
-Clone o repositório:
+Desenvolvido por
 
-Bash
-git clone https://github.com/seu-usuario/loja-web-corvette.git
-
-Inicie o servidor Flask:
-(Certifique-se de ter o Flask instalado: pip install flask)
-
-Bash
-python main.py
-
-Acesse: http://127.0.0.1:5000
-
-Desenvolvido por: Werick Santos | Thiago Antony | Guilherme Laudade
+Werick Santos
+Thiago Antony
+Guilherme Laudade
