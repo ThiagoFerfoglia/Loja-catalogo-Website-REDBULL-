@@ -1,29 +1,38 @@
-🏎️ Corvette Experience | High-Performance Catalog
-Uma plataforma imersiva de catálogo automotivo focada na linha Corvette. Este projeto combina a robustez do Python/Flask com uma interface de vanguarda, utilizando técnicas avançadas de Glassmorphism, CSS Grid e Flexbox para entregar uma experiência visual de luxo e alta performance.
+Red Bull Landing Page
 
-💎 Design & UI/UX
-Layout de Cards Bilateral: Evolução de uma lista vertical para um sistema de CSS Grid responsivo, mantendo os cards de performance alinhados lado a lado em resoluções desktop.
+Landing page moderna inspirada no universo da Red Bull, focada em performance visual, animações e experiência imersiva. O projeto simula um ambiente dinâmico com atletas, esportes radicais e conteúdo multimídia, explorando conceitos avançados de front-end.
 
-Sidebar de Monitoramento: Implementação de uma barra lateral fixa com indicadores de status em tempo real (Status: Active) e metadados do modelo (MY: 2026).
+✨ Destaques
+🎬 Hero com vídeo em background (autoplay + overlay + efeitos visuais)
+🎯 Carrossel interativo de atletas
+🎥 Grid multimídia com hover (imagem → vídeo)
+🧠 Animações com Intersection Observer
+🖱️ Cursor customizado
+⚡ Transições suaves e microinterações
+📱 Responsividade para diferentes dispositivos
+🛠️ Tecnologias utilizadas
+HTML5
+CSS3 (Flexbox, Grid, animações, clamp())
+JavaScript (DOM, eventos, animações)
+Jinja2 (integração com backend Flask)
+🎨 Conceitos aplicados
+Design moderno e imersivo
+Mobile-first (em evolução)
+Performance visual e UX
+Organização modular de layout
+Uso de vídeo e interação para engajamento
+⚠️ Observações
 
-Glassmorphism Contact: Página de contato robusta com formulários envoltos em cartões de efeito "vidro jateado" e filtros de desfoque dinâmicos.
+Este projeto tem foco em estudo e prática de front-end avançado, principalmente em:
 
-Micro-interações: Efeitos de hover que expandem as imagens e alteram o contorno para o icônico Vermelho Corvette (#ff2600).
-
-⚙️ Engenharia de Software
-Rotas Dinâmicas: Centralização da lógica de navegação no Flask para carregamento inteligente de templates via parâmetros.
-
-Segurança de Navegação: Filtro de páginas permitidas (allowed_pages), bloqueando o acesso direto a arquivos sensíveis do sistema.
-
-Responsividade Adaptativa: Media queries otimizadas que reorganizam o Grid para colunas únicas em dispositivos móveis, priorizando a legibilidade.
-
-🛠️ Tecnologias Utilizadas
-Backend	Python 3.x + Flask Microframework
-Frontend	HTML5 + Modern CSS (Grid/Flex)
-Efeitos	CSS Backdrop Filters & Glassmorphism
-Ícones	Font Awesome 6.0
-Animações	Transições CSS3 & Keyframes
-Versionamento	Git 
+animações
+responsividade
+manipulação de DOM
+📌 Próximos passos
+Melhorar responsividade mobile (ajustes finos de layout)
+Otimizar performance de vídeos
+Implementar lazy loading
+Refinar acessibilidade
 
 .
 ├── main.py                 # Lógica do servidor e rotas Flask
