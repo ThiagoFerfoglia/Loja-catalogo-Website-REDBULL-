@@ -76,29 +76,28 @@ document.addEventListener("DOMContentLoaded", () => {
             sport: 'FÓRMULA 1',
             title: 'Max Verstappen\ndomina a F1',
             desc: 'Max Verstappen domina a F1 com maestria, conquistando títulos e quebrando recordes com agressividade e consistência incomparáveis.',
-            image: '/static/img/maxverstappen.jpg',
-            num: '01'
+            image: '../static/img/maxverstappen.jpg',
+            
         },
         {
             sport: 'FUTEBOL',
             title: 'Neymar Jr.\nmaior artilheiro',
             desc: 'Neymar ultrapassa Pelé e faz história como maior artilheiro da Seleção Brasileira, com dribles e gols inesquecíveis.',
-            image: '/static/img/Neymar.jpg',
-            num: '02'
+            image: '../static/img/Neymar.jpg',
+            
         },
         {
             sport: 'ESQUI ALPINO',
             title: 'Lucas Braathen\nsurpreende o mundo',
             desc: 'Brasileiro se destaca nas Olimpíadas de inverno, mostrando talento e determinação em um esporte pouco tradicional para o país.',
-            image: '/static/img/lucas.jpg',
-            num: '03'
+            image: '../static/img/lucas.jpg',
+            
         },
         {
             sport: 'E-SPORTS',
             title: 'Gaules\ndomina a cena',
             desc: 'Um dos maiores nomes do e-sports, Gaules conquista fãs ao redor do mundo com habilidade excepcional e carisma único.',
-            image: '/static/img/gaules.jpg',
-            num: '04'
+            image: '../static/img/gaules.jpg',
         }
     ];
 
@@ -123,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (elTitle)  elTitle.innerHTML    = a.title.replace('\n','<br>');
                 if (elDesc)   elDesc.textContent   = a.desc;
                 if (elImg)  { elImg.src = a.image; elImg.alt = a.title; }
-                if (elLink)   elLink.href = '#';
+                if (elLink)   elLink.href = a.link || '../Atletas';
                 if (elNum)    elNum.textContent    = a.num;
                 if (progress) progress.style.width = ((cur + 1) / athletes.length * 100) + '%';
                 carousel.classList.remove('out');
@@ -185,5 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ease: 'power3.out'
         });
     }
-
+    
 });
+    
