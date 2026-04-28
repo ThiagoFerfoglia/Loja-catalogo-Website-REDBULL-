@@ -4,24 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Red Bull | Gives You Wings</title>
+
     <meta name="description" content="Red Bull — energia, velocidade e adrenalina. Conheça atletas, eventos e o universo Red Bull.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="../static/css/home.css">
 </head>
+
 <body>
 
-{% include 'navbar.html' %}
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <div class="logo-centro">
+        <a href="home.html">RED BULL</a>
+    </div>
+
+    <div class="nav-right">
+        <span class="nav-status"><span class="dot"></span>LIVE</span>
+    </div>
+</header>
+
+<nav class="menu-lateral" id="menuLateral">
+    <div class="menu-inner">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="races.html">Lineup & Races</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-footer">
+            <a href="https://www.instagram.com/redbull/" target="_blank">IG</a>
+            <a href="https://twitter.com/redbull" target="_blank">X</a>
+            <a href="https://www.youtube.com/redbull" target="_blank">YT</a>
+        </div>
+    </div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
 
 <!-- HERO -->
 <section class="hero">
     <video autoplay muted loop playsinline class="bg-video">
-        <source src="{{ url_for('static', filename='videos/REDBULL.mp4') }}" type="video/mp4">
+        <source src="../static/videos/REDBULL.mp4" type="video/mp4">
     </video>
+
     <div class="hero-overlay"></div>
-    <div class="hero-noise"></div>
 
     <div class="hero-content">
         <h1 class="hero-title">
@@ -31,7 +67,7 @@
         <p class="hero-sub">TE DÁ AAASAS</p>
     </div>
 
-    <a href="/Atletas" class="hero-scroll">
+    <a href="races.html" class="hero-scroll">
         <span class="scroll-label">DISCOVER</span>
         <span class="scroll-arrow"></span>
     </a>
@@ -39,6 +75,7 @@
     <div class="hero-corner tl">RB·WORLD</div>
     <div class="hero-corner tr">2026</div>
 </section>
+
 
 <!-- TICKER -->
 <div class="ticker-wrap">
@@ -58,11 +95,20 @@
         <span>FOCUS</span><span class="sep">✦</span>
         <span>GIVES YOU WINGS</span><span class="sep">✦</span>
         <span>E-SPORTS</span><span class="sep">✦</span>
+        <span>FORMULA 1</span><span class="sep">✦</span>
         <span>MORE ENERGY</span><span class="sep">✦</span>
+        <span>ADRENALINE</span><span class="sep">✦</span>
+        <span>WINGS</span><span class="sep">✦</span>
+        <span>ENERGY DRINK</span><span class="sep">✦</span>
+        <span>FOCUS</span><span class="sep">✦</span>
+        <span>GIVES YOU WINGS</span><span class="sep">✦</span>
+        <span>E-SPORTS</span><span class="sep">✦</span>
+        <span>FORMULA 1</span><span class="sep">✦</span>
     </div>
 </div>
 
-<!-- CARROSSEL DE ATLETAS -->
+
+<!-- CARROSSEL -->
 <section class="athlete-carousel" id="athletes">
     <div class="carousel-side left">
         <button class="carousel-arrow" id="prevBtn">&#10094;</button>
@@ -71,15 +117,23 @@
     <div class="carousel-stage">
         <div class="carousel-text">
             <span class="carousel-tag" id="athleteSport">FÓRMULA 1</span>
-            <h2 class="carousel-title" id="athleteTitle">Max Verstappen<br>domina a F1</h2>
-            <p class="carousel-desc" id="athleteDesc">Max segue como um dos nomes mais fortes da categoria, unindo agressividade, técnica e consistência em alto nível.</p>
-            <a href="/Races" class="carousel-cta" id="athleteLink">
+
+            <h2 class="carousel-title" id="athleteTitle">
+                Max Verstappen<br>domina a F1
+            </h2>
+
+            <p class="carousel-desc" id="athleteDesc">
+                Max segue como um dos nomes mais fortes da categoria.
+            </p>
+
+            <a href="Atletas.html" class="carousel-cta" id="athleteLink">
                 VEJA MAIS <span class="cta-arrow">→</span>
             </a>
         </div>
+
         <div class="carousel-visual">
             <div class="img-frame">
-                <img id="athleteImage" src="{{ url_for('static', filename='img/maxverstappen.jpg') }}" alt="Atleta">
+                <img id="athleteImage" src="../static/img/maxverstappen.jpg" alt="Atleta">
             </div>
             <div class="img-number" id="athleteNum">01</div>
         </div>
@@ -94,17 +148,20 @@
     </div>
 </section>
 
-<!-- MEDIA GRID -->
+
+<!-- MEDIA -->
 <section class="media-section" id="media">
     <div class="media-header">
         <h2>THE <em>WORLD</em></h2>
         <p>Energia em cada frame.</p>
     </div>
+
     <div class="media-grid">
+
         <div class="media-card grupo-1">
-            <img class="card-image" src="{{ url_for('static', filename='img/skate.jpeg') }}" alt="RedBull Origin">
+            <img class="card-image" src="../static/img/skate.jpeg">
             <video class="card-video" muted loop playsinline>
-                <source src="{{ url_for('static', filename='videos/skate2.mp4') }}">
+                <source src="../static/videos/skate2.mp4">
             </video>
             <div class="card-overlay"></div>
             <div class="card-content">
@@ -114,9 +171,9 @@
         </div>
 
         <div class="media-card grupo-2">
-            <img class="card-image" src="{{ url_for('static', filename='img/flow2.jpg') }}" alt="FLOW">
+            <img class="card-image" src="../static/img/flow2.jpg">
             <video class="card-video" muted loop playsinline>
-                <source src="{{ url_for('static', filename='videos/flow2.mp4') }}">
+                <source src="../static/videos/flow2.mp4">
             </video>
             <div class="card-overlay"></div>
             <div class="card-content">
@@ -126,9 +183,9 @@
         </div>
 
         <div class="media-card grupo-1">
-            <img class="card-image" src="{{ url_for('static', filename='img/trail.png') }}" alt="Speed">
+            <img class="card-image" src="../static/img/trail.png">
             <video class="card-video" muted loop playsinline>
-                <source src="{{ url_for('static', filename='videos/trail.mp4') }}">
+                <source src="../static/videos/trail.mp4">
             </video>
             <div class="card-overlay"></div>
             <div class="card-content">
@@ -138,9 +195,9 @@
         </div>
 
         <div class="media-card grupo-2">
-            <img class="card-image" src="{{ url_for('static', filename='img/moto.jpg') }}" alt="Legacy">
+            <img class="card-image" src="../static/img/moto.jpg">
             <video class="card-video" muted loop playsinline>
-                <source src="{{ url_for('static', filename='videos/moto.mp4') }}">
+                <source src="../static/videos/moto.mp4">
             </video>
             <div class="card-overlay"></div>
             <div class="card-content">
@@ -148,8 +205,10 @@
                 <h2 class="card-name">INSANE</h2>
             </div>
         </div>
+
     </div>
 </section>
+
 
 <!-- MANIFESTO -->
 <section class="manifesto-section">
@@ -166,10 +225,16 @@
             <span class="word">de</span>
             <span class="word accent">espírito.</span>
         </p>
-        <a href="/contact" class="manifesto-cta">FALE COM A GENTE</a>
+
+        <a href="contact.html" class="manifesto-cta">
+            FALE COM A GENTE
+        </a>
     </div>
 </section>
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<!-- JS -->
+<script src="../static/js/script.js"></script>
+
 </body>
 </html>
