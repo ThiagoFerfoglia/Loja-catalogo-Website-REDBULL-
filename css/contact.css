@@ -285,17 +285,19 @@ body {
 .qc-btn:hover { color: var(--red); }
 
 
+
 /* ── ESTADOS SVG ── */
 .estado {
-    fill: rgba(255,38,0,.07);
-    stroke: rgba(255,38,0,.3);
-    stroke-width: 0.8;
-    stroke-linejoin: round;
-    transition: fill .3s;
+    fill: #111;
+    stroke: rgba(255,255,255,0.08);
+    stroke-width: 1;
 }
-.estado:hover { fill: rgba(255,38,0,.18); }
-#sp, #rj, #mg, #ce, #am, #rs, #df { fill: rgba(255,38,0,.13); }
-
+.estado:hover {
+    fill: #ff2600;
+    stroke: #ff2600;
+    filter: drop-shadow(0 0 6px #ff2600);
+    cursor: pointer;
+}
 /* ── RESPONSIVE ── */
 @media(max-width: 960px) {
     .events-main { grid-template-columns: 1fr; }
