@@ -189,6 +189,7 @@ body {
     .events-main { grid-template-columns: 1fr; }
     .map-panel { position:relative; top:0; border-right:none; border-bottom:1px solid var(--border); padding:50px 6%; }
     .events-panel { max-height:none; }
+    .cursor { display:none; }
 }
 @media(max-width: 600px) {
     .hero-title { font-size:clamp(48px,15vw,80px); }
