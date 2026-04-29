@@ -252,17 +252,6 @@ window.addEventListener('scroll', () => {
     document.getElementById('navbar')?.classList.toggle('scrolled', scrollY > 40);
 });
 
-/* MENU */
-const menuBtn = document.getElementById('menuBtn');
-const menuLat = document.getElementById('menuLateral');
-const overlay = document.getElementById('menuOverlay');
-function toggleMenu(s) {
-    menuLat.classList.toggle('ativo', s);
-    overlay.classList.toggle('ativo', s);
-    menuBtn.classList.toggle('open', s);
-}
-menuBtn.addEventListener('click', () => toggleMenu(!menuLat.classList.contains('ativo')));
-overlay.addEventListener('click', () => toggleMenu(false));
 
 /* MAPA */
 const pins = document.querySelectorAll('.map-pin');
