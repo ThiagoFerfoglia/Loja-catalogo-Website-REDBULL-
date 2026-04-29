@@ -41,10 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         menuBtn?.classList.toggle('open', state);
     }
 
-    menuBtn?.addEventListener('click', () => toggleMenu(!menuLat.classList.contains('ativo')));
-    overlay?.addEventListener('click', () => toggleMenu(false));
-
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(false); });
 
     /* ===== MEDIA SECTION OBSERVER ===== */
     const mediaSection = document.querySelector('.media-section');
