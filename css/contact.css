@@ -170,9 +170,9 @@ body {
 .qc-btn:hover { color:var(--red); }
 
 /* ── ESTADOS D3 ── */
-.estado {
-    fill: #5b3434;
-    stroke: rgba(39, 14, 14, 0.08);
+.estado {   
+    fill: #302d2da6;
+    stroke: rgb(0, 0, 0);
     stroke-width: 0.8px;
     stroke-linejoin: round;
     transition: fill .3s;    
