@@ -105,28 +105,28 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ===== ATHLETE CAROUSEL ===== */
     const athletes = [
         {
-            sport: 'FÓRMULA 1',
-            title: 'Max Verstappen\ndomina a F1',
-            desc: 'Max Verstappen domina a F1 com maestria, conquistando títulos e quebrando recordes com agressividade e consistência incomparáveis. Para Verstappen, cada corrida é uma batalha onde ele demonstra sua habilidade excepcional, superando desafios e deixando uma marca indelével na história do automobilismo.',
-            image: 'img/maxverstappen.jpg'
+            sport: 'E-SPORTS',
+            title: 'Gabs Freindorfer\numa das maiores streamer do País',
+            desc: 'Gabriela Freindorfer, a Gabs, teve uma carreira bem-sucedida como proplayer no Counter-Strike: Global Offensive. Ela atuou pelas equipes femininas de grandes times como a Team Alientech, Não Tem Como, Keyd Stars e FURIA.',
+            image: 'img/gabs.jpg'
         },
         {
             sport: 'FUTEBOL',
-            title: 'Neymar Jr.\nmaior artilheiro',
-            desc: 'Neymar ultrapassa Pelé e faz história como maior artilheiro da Seleção Brasileira, com dribles e gols inesquecíveis. aos pés de Neymar, o futebol se torna arte, e cada gol é uma obra-prima que eterniza seu nome na história do esporte.',
-            image: 'img/Neymar.jpg'
+            title: 'Neymar Jr.\nmenino da vila',
+            desc: 'Neymar Jr. nasceu para o espetáculo — dos dribles ousados no início da carreira ao estrelato mundial, sempre jogando com alegria e ousadia. Com a energia da Red Bull, ele segue reinventando o jogo e deixando sua marca na história do futebol.',
+            image: 'img/neymarjr.jpg'
         },
         {
             sport: 'ESQUI ALPINO',
-            title: 'Lucas Braathen\nsurpreende o mundo',
+            title: 'Lucas Braathen\nmedalhista de ouro brasileiro',
             desc: 'Brasileiro se destaca nas Olimpíadas de inverno. Com habilidade e coragem, Lucas Braathen desafia as expectativas e conquista o respeito do mundo do esqui, mostrando que o talento brasileiro pode brilhar até nas pistas mais geladas.',
             image: 'img/lucas.jpg'
         },
         {
-            sport: 'E-SPORTS',
-            title: 'Gaules\ndomina a cena',
-            desc: 'Um dos maiores nomes do e-sports. Com habilidade excepcional e carisma único, Gaules conquista fãs ao redor do mundo, elevando o cenário competitivo a novos patamares e inspirando uma geração de jogadores a sonhar grande.',
-            image: 'img/gaules.jpg'
+            sport: 'SKATE',
+            title: 'Leticia Bufoni\nícone global',
+            desc: 'A parceria entre Leticia Bufoni e a Red Bull consolidou a skatista brasileira como um dos maiores ícones mundiais do esporte. Como atleta patrocinada, ela realizou projetos audaciosos, incluindo o "Sky Grind", onde saltou de paraquedas com um skate, e participou de eventos de ponta, como o Red Bull Showrun e Rio Conquest, unindo skate, velocidade e cultura urbana.',
+            image: 'img/leticia.jpg'
         }
     ];
 
